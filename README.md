@@ -1,117 +1,113 @@
-Rentify App- Where Renting Meets Simplicity
+# Lead Management System (LMS)
 
-Overview:
+## Project Overview
 
-Rentify is a web application developed to help property owners find the right tenants and tenants to find the right homes based on their requirements. As the world recovers from the pandemic and people return to their routines, the demand for real estate has surged. Rentify aims to bridge the gap in the rental market by providing a platform that simplifies the process of renting properties.
+This **Lead Management System** is a role-based web application that helps capture and manage leads from third-party websites. It features three dashboards for Admin, Vendor, and User roles, each with specific functionalities for handling leads. The project includes authentication, authorization, lead assignment, commission tracking, bulk lead uploads, and status updates.
 
-Challenge Overview:
+### Key Features:
 
-The development of Rentify was divided into three parts:
+- **Admin Dashboard:**
+  1. View all leads and vendors.
+  2. Assign vendors to leads and update lead status.
+  3. Set and view commission settings based on lead conversion count and service type.
+  4. Bulk upload of leads via CSV file format.
+  5. When clicking on form data in the third-party web, it should display in the admin dashboard, and all submissions should be shown. Duplication of leads is also handled.
 
-1. Basic Application Development
-2. Adding Advanced features
-3. Deployment of App 
+- **Vendor Dashboard:**
+  1. Set location and service type after logging in.
+  2. View leads assigned by the admin and update lead status.
+  3. Track commission based on the number of lead conversions.
 
-Tech Stack used for implementing the project:
+- **User Dashboard:**
+  1. Create new leads that are visible in the admin dashboard.
 
-1.Front-end: React.js
-2.Back-end*: Node.js with Express.js
-3.Database*: MongoDB
-4.Authentication: JWT (JSON Web Tokens)
+### Technologies Used:
 
+- **Backend**: Node.js with Express
+- **Frontend**: React with Tailwind CSS for styling
+- **Database**: MongoDB
+- **Authentication and Authorization**: JSON Web Tokens (JWT)
+- **Form Validation**: Custom validation for inputs
+- **Pagination**: Implemented for better data navigation
+- **Error Handling**: Proper error handling throughout the application
+- **Security**: Security measures has been implemented
 
-Features :
+---
 
-Account Creation & Login
- 
-  * Users can register as either a seller or a buyer by providing required data.
+## Installation and Setup Guide
 
-  * Seller Login :
-    
-      ---> Post Property : Sellers can post their properties by providing essential details such as location, area, number of bedrooms, bathrooms etc.
+Follow these steps to run the Lead Management System on your local machine:
 
-      ---> View Property : Sellers can view the properties they have posted.
+### Prerequisites:
 
-      ---> Update/Delete Property: Sellers can update or delete their listed properties.
+- Node.js (latest version)
+- MongoDB (either installed locally or use a cloud service like MongoDB Atlas)
 
-  * Buyer Login :
+### Steps to Run the Project Locally:
 
-      ---> View Property : Buyers can view all posted rental properties without login.
+#### 1. Clone the Repository:
 
-      ---> Apply Filters: Buyers can apply filters based on property details like location, area, number of bedrooms, etc.
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
 
-      ---> Express Interest : Buyers can click the "I'm Interested" button on a property widget to view the seller's details.
+#### 2. Set Up Backend (Node.js + Express):
 
+1. Navigate to the backend folder:
+   ```bash
+   cd server
+   ```
 
+2. Install required packages:
+   ```bash
+   npm install
+   ```
 
-Pagination and Form Validation:
+3. Create a `.env` file in the root of the backend directory and add the following configuration:
 
-  ---> Implemented pagination to handle large lists of properties.
-  ---> Proper form validation to ensure data integrity.
+   ```bash
+   PORT=5000
+   MONGO_URI=<your-mongodb-uri>
+   JWT_SECRET=<your-jwt-secret>
+   ```
 
-Mandate Login for Buyer Actions:
+4. Start the backend server:
+   ```bash
+   npm run dev
+   ```
 
- ---> Buyers must log in to view seller details.
- ---> Unauthorized users attempting to access seller information are redirected to the login screen.
+#### 3. Set Up Frontend (React + Tailwind CSS):
 
-Like Button:
+1. Navigate to the frontend folder:
+   ```bash
+   cd clinet
+   ```
 
- ---> Added a Like button to each property.
- ---> Tracked the like count live.
+2. Install required packages:
+   ```bash
+   npm install
+   ```
 
-Email Notifications:
+3. Create a `.env` file in the root of the frontend directory and add the following configuration:
 
- ---> When a buyer clicks the "I'm Interested" button:
-      - The buyer receives an email with the seller's contact details.
-      - The seller receives an email with the interested buyer's details.
+   ```bash
+   REACT_APP_API_URL=http://localhost:5000
+   ```
 
-## Installation and Setup
+4. Start the frontend application:
+   ```bash
+   npm start
+   ```
 
-### Prerequisites
-- Node.js
-- MongoDB
+#### 4. Open in Browser:
 
-### Steps
-1. Clone the Repository
-    bash
-    git clone https://github.com/yourusername/rentify.git
-    cd rentify
-    
+Once both servers (backend and frontend) are running, open the application in your browser at:
 
-2. Install Dependencies
-    - For the server:
-        bash
-        cd server
-        npm install
-        
-    - For the client:
-        bash
-        cd client
-        npm install
-        
-
-3. Environment Variables
-    - Create a .env file in the server directory and add the following variables:
-        
-        MONGO_URL=your_mongodb_connection_string
-        JWT_SECRET=your_jwt_secret
-        
-
-4. Run the Application
-    - Start the server:
-        bash
-        cd server
-        npm start
-        
-    - Start the client:
-        bash
-        cd client
-        npm start
-        
-
-5. Access the Application
-    Open your browser and navigate to http://localhost:3000.
-
+```
+http://localhost:3000
+```
 
 ## Conclusion
-Rentify is a robust platform that addresses the challenges of finding rental properties in a high-demand market. By utilizing the MERN stack, the application ensures a seamless and efficient experience for both property owners and tenants.
+
+This project is a robust and scalable **Lead Management System** designed to handle lead capturing and management from third-party websites. It includes role-based access, commission tracking, bulk uploads, and more. The system is highly customizable, with error handling, pagination, form validation, and security measures to ensure smooth operation.
